@@ -2,22 +2,27 @@
 document.getElementById('btn-calculate').addEventListener('click', function(){
     totalExpenses = 0;
     otherBalance = 0;
-    const income = getValueElementId('total-income');
+    income = 0
+    income = getValueElementId('total-income');
     const food = getValueElementId('food-total');
     const rent = getValueElementId('rent-total');
     const clothes = getValueElementId('clothes-total');
     totalExpenses = food + rent + clothes;
     otherBalance = income - totalExpenses;
-    setTextElementValueById('total-expense',totalExpenses);
-    setTextElementValueById('others-balance',otherBalance);
+    setTextElementValueById("total-expense",totalExpenses +` TK`);
+    setTextElementValueById("others-balance",otherBalance +` TK`);
+
 })
 
 document.getElementById('btn-saving').addEventListener('click', function(){
     const discountValue = getValueElementId('discount-value');
-    const discountedTotal = totalExpenses * (1 - discountValue/100);
+    const discountedTotal = income * discountValue/100;
     const newBalanceTotal = otherBalance - discountedTotal;
-    setTextElementValueById("saving-value",discountedTotal);
-    setTextElementValueById("remain-value",newBalanceTotal.toFixed(2));
+    setTextElementValueById("saving-value",discountedTotal +` TK`);
+    setTextElementValueById("remain-value",newBalanceTotal +` TK`);
+
+    // document.getElementById("saving-value").innerText = discountedTotal +` TK`;
+    // document.getElementById("remain-value").innerText = newBalanceTotal.toFixed(2) +` TK`; 
 })
 
 
