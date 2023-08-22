@@ -25,6 +25,17 @@ document.getElementById('btn-saving').addEventListener('click', function(){
     // document.getElementById("remain-value").innerText = newBalanceTotal.toFixed(2) +` TK`; 
 })
 
+document.getElementById('reset-btn').addEventListener('click', function(){
+    totalExpenses = 0
+    otherBalance = 0;
+    discountedTotal = 0;
+    newBalanceTotal = 0;
+    setTextElementValueById("total-expense",totalExpenses +` TK`);
+    setTextElementValueById("others-balance",otherBalance +` TK`);
+    setTextElementValueById("saving-value",discountedTotal +` TK`);
+    setTextElementValueById("remain-value",newBalanceTotal +` TK`);
+
+})
 
 function getValueElementId (elementId){
     const elementValue = document.getElementById(elementId);
